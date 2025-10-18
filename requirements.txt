@@ -1,0 +1,7 @@
+Pyyaml
+setuptools
+rich
+xxhash
+click
+paramiko
+

@@ -1,0 +1,5 @@
+run_id,timestamp,worker,src_path,dst_path,size_bytes,mtime_unix,hash,decision,reason,duration_ms,rsync_exit,error_msg,tool,attempts,verified
+58e9ee95d07a4b7c84dc892fe40c585a,2025-10-18T00:13:32.149930+00:00,planner,data/source_f/file1.iso,/home/pierringshot/FileOPS-Toolkit/data/destination/file1.iso,17,1760652632.114779,8ac018c265d4a1e997ba202ef7063e67,skip,existing_identical,0.0,,,,0,
+58e9ee95d07a4b7c84dc892fe40c585a,2025-10-18T00:13:32.150022+00:00,planner,data/source_d/file1.iso,/home/pierringshot/FileOPS-Toolkit/data/destination/file1.iso,17,1760652632.114779,8ac018c265d4a1e997ba202ef7063e67,duplicate,hash_match,0.0,,,,0,False
+58e9ee95d07a4b7c84dc892fe40c585a,2025-10-18T00:13:32.150046+00:00,planner,data/source_f/file2.iso,/home/pierringshot/FileOPS-Toolkit/data/destination/file2.iso,16,1760652632.114779,ce224d15b66a41110d5ec497ffa9cac4,skip,existing_identical,0.0,,,,0,
+58e9ee95d07a4b7c84dc892fe40c585a,2025-10-18T00:13:32.150055+00:00,planner,data/source_d/file3.iso,/home/pierringshot/FileOPS-Toolkit/data/destination/file3.iso,17,1760652632.114779,fb9ca3de466c5e579dc8aaf5f1e6940e,skip,existing_identical,0.0,,,,0,

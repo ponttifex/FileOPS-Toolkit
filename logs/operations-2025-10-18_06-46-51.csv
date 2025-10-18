@@ -1,0 +1,1 @@
+run_id,timestamp,worker,src_path,dst_path,size_bytes,mtime_unix,hash,decision,reason,note,duration_ms,rsync_exit,error_msg,tool,attempts,verified

@@ -1,0 +1,25 @@
+sources:
+  - /mnt/f
+  - /mnt/h
+  - /mnt/d
+  - /mnt/c
+  - /mnt/j
+destination: /mnt/g
+extensions: ['iso', 'ISO']
+parallel_workers: 24
+checksum_algo: xxh128
+deduplication_policy: prefer_newer
+transfer_tool: rsync
+rsync_args:
+  - "-aHAX"
+  - "--sparse"
+  - "--preallocate"
+  - "--partial"
+  - "--info=progress2,stats4"
+logging:
+  dir: ./logs
+  csv_file: operations-$(date +%F_%T).csv
+  json_file: summary.json
+dry_run: false
+verify_after_transfer: true
+backup_duplicates_to: /mnt/e
