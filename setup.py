@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='fileops_toolkit',
-    version='0.3.0',
+    name='fileops',
+    version='0.4.0',
     description='Modular, parallel, and intelligent file deduplication & transfer system',
-    author='FileOps Toolkit Authors',
+    author='PierringShot Electronics™',
     license='MIT',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},

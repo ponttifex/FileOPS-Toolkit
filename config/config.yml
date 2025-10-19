@@ -7,8 +7,10 @@ remote_sources:
 - target: pierringshot@10.249.162.31:~/Desktop/WABACore.AI/
   name: wabacore-ai
   rsync_args:
-  - "-avz"
-  - "--info=progress2"
+  - -avz
+  - --info=progress2
+- target: 10.249.162.32:/storage/emulated/0/Documents/AKM
+  name: NOTE9_OBSIDIAN
 destination: /mnt/e
 extensions:
 - iso
@@ -27,9 +29,9 @@ deduplication_policy: prefer_newer
 duplicates_policy: delete
 remote_staging_dir: ./data/remote_staging
 remote_rsync_args:
-- "-avz"
-- "--info=progress2"
-remote_parallel_workers: 2
+- -avz
+- --info=progress2
+remote_parallel_workers: 4
 transfer_tool: rsync
 rsync_args:
 - -aHAX

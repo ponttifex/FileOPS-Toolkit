@@ -1,23 +1,19 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Source lives under `src/fileops_toolkit/`, grouped by domain: `discovery/`, `metadata/`, `deduplication/`, `transfer/`, `verification/`, `logging/`, `supervisor/`, and `console/` for the CLI. Shared configuration helpers sit in `src/fileops_toolkit/config_loader.py`, `pipeline.py`, and `prechecks.py`. Example configs reside in `config/`, runtime artefacts in `logs/`, and sample data under `data/` for local experiments. Console entry points are exposed via `bin/fileops-toolkit` after bootstrapping.
+All application code lives in `src/fileops_toolkit/`. Subpackages follow the pipeline flow: `discovery/`, `metadata/`, `deduplication/`, `transfer/`, `verification/`, `logging/`, `supervisor/`, and `console/` for the CLI surfaces. Shared helpers sit in `config_loader.py`, `pipeline.py`, and `prechecks.py`. Configuration samples live in `config/`, runtime logs in `logs/`, and sample datasets under `data/`. The executable wrapper `bin/fileops-toolkit` becomes available after running `./run.sh`.
 
 ## Build, Test, and Development Commands
-- `./run.sh` — create/refresh `.venv`, install dependencies in editable mode, then open the interactive menu.
-- `python -m fileops_toolkit.console.main precheck --config config/config.yml` — verify binaries, disk space, and directory permissions before a run.
-- `python -m fileops_toolkit.console.main run --config config/config.yml --dry-run` — exercise the full pipeline without writing to the destination.
-- `python -m compileall src` — quick smoke check that modules import successfully; run before submitting PRs.
-- `pip install -e .[dev]` — optional editable install with planned dev extras once added.
+Run `./run.sh` to create or refresh `.venv`, install dependencies in editable mode, and launch the interactive menu. Use `python -m fileops_toolkit.console.main precheck --config config/config.yml` to validate binaries, free space, and permissions. Execute `python -m fileops_toolkit.console.main run --config config/config.yml --dry-run` for a full simulated pipeline, or switch `--dry-run` to `--apply` for real transfers. `python -m compileall src` provides a quick importability check, and `pytest` (after `pip install -e .[dev]`) runs the automated suite.
 
 ## Coding Style & Naming Conventions
-Follow PEP 8 with 4-space indentation. Modules and packages use `snake_case`; classes follow `CamelCase`; command functions should read like verbs (`run_pipeline`). Keep Rich UI helpers declarative and avoid inline ANSI codes. Prefer pathlib over os.path, and centralise filesystem mutations in the relevant engine modules.
+Adopt PEP 8 with four-space indentation. Modules and packages should use `snake_case`, classes `CamelCase`, and public functions describe actions (`run_pipeline`, `load_config`). Prefer `pathlib.Path` for filesystem access and keep Rich-based UI helpers declarative—no raw ANSI sequences. Centralise filesystem mutations inside the transfer or supervisor layers to keep policies deterministic.
 
 ## Testing Guidelines
-Add unit tests beside new modules under `tests/` (create the directory if missing) using `pytest`. Name files `test_<feature>.py` and functions `test_<behavior>()`. Include integration exercises for discovery, deduplication, and transfer flows where feasible, mocking remote hosts when secrets would otherwise be required. Ensure `python -m compileall src` and `pytest` both succeed before requesting review.
+Place new tests in `tests/`, mirroring the module hierarchy. Name files `test_<feature>.py` and functions `test_<behavior>()`. Rely on `pytest` fixtures to mock remote hosts or large data sets. Confirm both `python -m compileall src` and `pytest` pass before submitting changes. For manual smoke tests, run the CLI in both dry-run and apply modes to cover deduplication, mirror/flatten, and remote staging paths.
 
 ## Commit & Pull Request Guidelines
-Write commits in imperative mood (`feat: add mirror mode hashing`). Group related changes; avoid mixing refactors with feature work. Pull requests should include: purpose summary, testing evidence (`pytest`, CLI dry-run, or pipeline logs), mention of updated docs/configs, and any follow-up todos. Link GitHub issues when applicable and attach screenshots or terminal snippets for UI/menu adjustments.
+Commits must be imperative (`feat: add mirror mode hashing`) and scoped to a single concern. Each pull request should outline purpose, key changes, and verification evidence (e.g., `pytest`, `run --dry-run`, or log snippets). Note any config or documentation updates, link related issues, and include screenshots when altering console output or banners. Request review only after resolving TODOs in code or docs.
 
 ## Security & Configuration Tips
-Never commit real API tokens, SSH passwords, or production paths. Mask secrets in examples, rely on `.env` or user-specific overrides, and ensure `.gitignore` excludes logs, temp staging areas, and virtual environments. Use the `remote_sources` staging directory in configs for SSH transfers and confirm `sshpass` availability when password auth is required.
+Do not commit secrets, SSH keys, or production host paths. Keep `.env`, `logs/`, `.venv/`, and temp staging directories ignored. When configuring `remote_sources`, verify `sshpass` exists for password-based flows and prefer SSH keys in production. Validate destination permissions and free space via `precheck` before running long transfers.
